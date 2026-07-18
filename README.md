@@ -27,7 +27,7 @@ This project builds an automated Azure data pipeline that:
 - Cleans and transforms the data using Azure Databricks (PySpark)
 - Stores curated datasets using the Medallion Architecture
 - Exposes data through Azure Synapse Analytics
-- Creates interactive dashboards in Power BI
+- Connects Power BI to Azure Synapse Analytics using the Serverless SQL Endpoint to create business reports
 
 
   # Technology Stack
