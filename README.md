@@ -28,3 +28,20 @@ This project builds an automated Azure data pipeline that:
 - Stores curated datasets using the Medallion Architecture
 - Exposes data through Azure Synapse Analytics
 - Creates interactive dashboards in Power BI
+
+
+  # Technology Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Cloud Platform | Microsoft Azure |
+| Data Ingestion | Azure Data Factory |
+| Storage | Azure Data Lake Storage Gen2 |
+| Data Processing | Azure Databricks |
+| Language | Python, PySpark |
+| Data Warehouse | Azure Synapse Analytics (Serverless SQL Pool) |
+| Data Format | CSV, Parquet |
+| Authentication | Microsoft Entra ID, Service Principal |
+| Query Engine | OPENROWSET, External Tables, SQL Views |
+| Reporting | Power BI |
+| Version Control | GitHub |
