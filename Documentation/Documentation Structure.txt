@@ -1,0 +1,262 @@
+Documentation Structure 
+Chapter 1 – Project Overview
+Introduction
+Business Problem
+Objectives
+Scope
+Expected Output
+Technologies Used
+Chapter 2 – Solution Architecture
+End-to-End Architecture Diagram
+Data Flow
+Azure Services Used
+Medallion Architecture
+Bronze Layer
+Silver Layer
+Gold Layer
+Chapter 3 – Dataset
+
+For every CSV
+
+AdventureWorks_Customers.csv
+AdventureWorks_Products.csv
+AdventureWorks_Product_Categories.csv
+AdventureWorks_Product_Subcategories.csv
+AdventureWorks_Returns.csv
+AdventureWorks_Calendar.csv
+AdventureWorks_Sales_2015.csv
+AdventureWorks_Sales_2016.csv
+AdventureWorks_Sales_2017.csv
+
+Documentation includes
+
+Purpose
+Number of columns
+Data types
+Primary Key
+Foreign Keys
+Sample records
+Business meaning
+Chapter 4 – Azure Resources
+
+Detailed explanation of
+
+Resource Group
+Storage Account
+ADLS Gen2
+Azure Data Factory
+Azure Databricks
+Azure Key Vault
+Azure Synapse
+SQL Database
+
+Including
+
+Why used
+Configuration
+Best practices
+Chapter 5 – GitHub Integration
+GitHub Repository
+Personal Access Token
+Linked Service
+HTTP Linked Service
+Dataset
+Parameterization
+JSON file explanation
+Chapter 6 – Azure Data Factory
+
+Every pipeline explained
+
+Lookup Activity
+ForEach Activity
+Copy Activity
+Execute Pipeline
+Validation
+Pipeline Parameters
+Global Parameters
+Dynamic Content
+Expressions
+
+Screenshots included.
+
+Chapter 7 – ADLS
+
+Folder Structure
+
+adventureworks
+
+Bronze
+    Customers
+    Products
+    Sales
+
+Silver
+    Customers
+    Products
+    Sales
+
+Gold
+    SalesAnalytics
+    CustomerAnalytics
+
+Naming conventions
+
+Storage optimisation
+
+Partitioning
+
+Chapter 8 – Databricks
+
+Workspace
+
+Notebook creation
+
+Cluster
+
+Libraries
+
+PySpark
+
+Transformations
+
+Cleaning
+
+Null handling
+
+Duplicate removal
+
+Data quality
+
+Delta Tables
+
+Chapter 9 – Bronze Layer
+
+Every notebook explained
+
+Input
+
+Output
+
+Schema
+
+Transformations
+
+Chapter 10 – Silver Layer
+
+Cleaning
+
+Joins
+
+Filtering
+
+Business Rules
+
+Derived Columns
+
+Chapter 11 – Gold Layer
+
+Fact tables
+
+Dimension tables
+
+Star Schema
+
+Business KPIs
+
+Chapter 12 – Synapse
+
+Dedicated SQL Pool
+
+Serverless SQL Pool
+
+External Tables
+
+Views
+
+Stored Procedures
+
+Chapter 13 – SQL Scripts
+
+Every SQL query explained
+
+Create Tables
+
+Views
+
+Merge
+
+Insert
+
+Update
+
+Stored Procedures
+
+Chapter 14 – Power BI
+
+Dashboard
+
+Measures
+
+KPIs
+
+Visuals
+
+Relationships
+
+DAX
+
+Publishing
+
+Chapter 15 – Monitoring
+
+ADF Monitoring
+
+Pipeline failures
+
+Retry
+
+Alerts
+
+Logging
+
+Error handling
+
+Chapter 16 – Security
+
+Managed Identity
+
+RBAC
+
+Key Vault
+
+Secrets
+
+Network Security
+
+Encryption
+
+Chapter 17 – CI/CD
+
+GitHub
+
+Azure DevOps
+
+ARM Templates
+
+Deployment
+
+Version Control
+
+Chapter 18 – Cost Optimization
+
+Storage
+
+Compute
+
+Databricks
+
+ADF
+
+Synapse
+
+Estimated monthly cost
