@@ -1,1 +1,55 @@
 
+https://adb-7405616826876223.3.azuredatabricks.net/editor/notebooks/694423613586734?o=7405616826876223 ----- link of script 
+
+
+
+%md
+
+###Data Loading
+
+%md
+
+#### Read calender data
+
+
+
+
+spark.conf.set("fs.azure.account.auth.type.awstoragedatalake2.dfs.core.windows.net", "OAuth")
+spark.conf.set("fs.azure.account.oauth.provider.type.awstoragedatalake2.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+spark.conf.set("fs.azure.account.oauth2.client.id.awstoragedatalake2.dfs.core.windows.net", "a47f8503-ba87-4208-a943-8d0804ecd329")
+spark.conf.set("fs.azure.account.oauth2.client.secret.awstoragedatalake2.dfs.core.windows.net", "exR8Q~I05UpSJJrMbD03SSr7-Pi1.wz-SFvqEdt_")
+spark.conf.set("fs.azure.account.oauth2.client.endpoint.awstoragedatalake2.dfs.core.windows.net", "https://login.microsoftonline.com/d91bfdb0-307b-4c9e-9beb-f5310494a29f/oauth2/token")
+df1 = spark.read.format('csv').option("header", True).option("inferSchema", False).load('abfss://bronze@awstoragedatalake2.dfs.core.windows.net/AdventureWorks_Calendar')
+df1.display()
+df_p = spark.read.format('csv').option("header",True).option("inferSchema",True).load('abfss://bronze@awstoragedatalake2.dfs.core.windows.net/products')
+df_p.display()
+df = spark.read.format('csv').option("header",True).option("inferSchema",True).load('abfss://bronze@awstoragedatalake2.dfs.core.windows.net/Returns')
+df.display()
+%md
+
+###Transformation
+
+df1.display()
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+df2 = df1.withColumn('Date', expr("try_to_date(Date, 'M/d/yyyy')"))\
+         .withColumn('Month', month('Date'))\
+         .withColumn('Year', year('Date'))
+
+
+df2.display()
+(
+    df2.write
+        .format("parquet")
+        .mode("append")
+        .save("abfss://silver@awstoragedatalake2.dfs.core.windows.net/Products")
+)
+
+df_p.display()
+df_cost= df_p.groupBy('ProductColor').mean('ProductCost').alias('avg_cost')
+df_cost.display()
+
+df_p.agg(
+    sum("ProductCost").alias("total_cost"),
+    max("ProductCost").alias("max_cost")
+).display()
