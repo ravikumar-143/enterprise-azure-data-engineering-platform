@@ -1,0 +1,35 @@
+
+CREATE VIEW gold.Product
+AS
+SELECT
+*
+FROM
+OPENROWSET(
+    BULK 'https://awstoragedatalake2.blob.core.windows.net/silver/Products/',
+    FORMAT = 'PARQUET'
+)AS QUER2
+
+
+
+
+CREATE VIEW gold.Products
+AS
+SELECT
+*
+FROM
+OPENROWSET(
+    BULK 'https://awstoragedatalake2.blob.core.windows.net/silver/Products/',
+    FORMAT = 'PARQUET'
+)AS QUER2
+
+
+
+CREATE VIEW gold.Calender
+AS
+SELECT
+*
+FROM
+OPENROWSET(
+    BULK 'https://awstoragedatalake2.blob.core.windows.net/silver/Products/',
+    FORMAT = 'PARQUET'
+)AS QUER2
